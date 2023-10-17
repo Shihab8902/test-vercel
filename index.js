@@ -1,6 +1,7 @@
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -8,6 +9,7 @@ const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 
 app.use(express.json());
+app.use(cors());
 
 
 const uri = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.kitiq8p.mongodb.net/?retryWrites=true&w=majority`;
